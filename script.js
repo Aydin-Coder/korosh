@@ -13,9 +13,16 @@ fetch("products.json")
         div.className = "product";
 
         div.innerHTML = `
+            <img src="images/${product.image}" 
+                 alt="${product.name}"
+                 class="product-image">
+
             <h3>${product.name}</h3>
+
             <p>${product.description}</p>
+
             <p>Price: $${product.price}</p>
+
             <button onclick="addToCart('${product.name}', ${product.price})">
                 Add to Cart
             </button>
@@ -50,5 +57,5 @@ function updateCart(){
         `;
     });
 
-    cartDiv.innerHTML += `<h3>Total: $${total}</h3>`;
+    cartDiv.innerHTML += `<h3>Total: $${total.toFixed(2)}</h3>`;
 }
